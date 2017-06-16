@@ -1,4 +1,5 @@
 #encoding:utf-8
+import Format
 
 class Course(object):
 	def __init__(self):
@@ -10,7 +11,8 @@ class Course(object):
 def filldata(Courseinstance,args):
 	Courseinstance.name = args[0]
 	Courseinstance.teacher = args[1]
-	Courseinstance.time.append(args[2])
+	Format.appendtime(Courseinstance,args[2].rstrip())
+	#print args[2].rstrip()
 	Courseinstance.classroom.append(args[3])
 
 
@@ -34,8 +36,7 @@ for line in f.readlines():
 for i in courselist:
 	print i.name
 	print i.teacher
-	for j in i.time:
-		print j
+	print i.time
 	for j in i.classroom:
 		print j
 
