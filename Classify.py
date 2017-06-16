@@ -12,8 +12,7 @@ def filldata(Courseinstance,args):
 	Courseinstance.name = args[0]
 	Courseinstance.teacher = args[1]
 	Format.appendtime(Courseinstance,args[2].rstrip())
-	#print args[2].rstrip()
-	Courseinstance.classroom.append(args[3])
+	Format.appendclassroom(Courseinstance,args[3].rstrip())
 
 
 f = open('schedule.txt','r')
@@ -37,7 +36,6 @@ for i in courselist:
 	print i.name
 	print i.teacher
 	print i.time
-	for j in i.classroom:
-		print j
+	print i.classroom
 
 
