@@ -14,28 +14,38 @@ def filldata(Courseinstance,args):
 	Format.appendtime(Courseinstance,args[2].rstrip())
 	Format.appendclassroom(Courseinstance,args[3].rstrip())
 
-
-f = open('schedule.txt','r')
-
-courselist = []  
-
-itemlist = []
-flag = 1
-for line in f.readlines():
-	if not flag==5:
-		itemlist.append(line)
-		flag += 1
-	else:
-		a = Course()
-		filldata(a,itemlist)
-		courselist.append(a)
-		itemlist = []
-		flag = 1
-
-for i in courselist:
+def getCourselist():
+	f = open('schedule.txt','r')
+	courselist = []
+	itemlist = []
+	flag = 1
+	for line in f.readlines():
+		if not flag==5:
+			itemlist.append(line)
+			flag += 1
+		else:
+			a = Course()
+			filldata(a,itemlist)
+			courselist.append(a)
+			itemlist = []
+			flag = 1
+	return courselist
+'''
+for i in getCourselist():
 	print i.name
 	print i.teacher
 	print i.time
 	print i.classroom
+'''
+'''
+def displayScheduleByWeek(courselist,week):
+	for course in courselist:
+		for time in course.time:
+			if week in time[2]:
+				#print course.time.index(time)
+				
+
+displayScheduleByWeek(courselist,16)
+'''
 
 
