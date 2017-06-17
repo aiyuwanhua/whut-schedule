@@ -37,15 +37,3 @@ for i in getCourselist():
 	print i.time
 	print i.classroom
 '''
-'''
-def displayScheduleByWeek(courselist,week):
-	for course in courselist:
-		for time in course.time:
-			if week in time[2]:
-				#print course.time.index(time)
-				
-
-displayScheduleByWeek(courselist,16)
-'''
-
-
